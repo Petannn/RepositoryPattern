@@ -6,9 +6,9 @@ namespace RepositoryPattern.QueryBuilders
     public class DummyQueryBuilder : QueryBuilder<DummyQueryBuilder, DummyModel>
     {
         /*
-         * Here is space for specify sorting/filtering methods for VoxelTables like:
+         * Here is space for specify sorting/filtering methods for DummyTables like:
          * 
-         * public DummyQueryBuilder WithZGreatherThen(float z) => AddCondition(v=> v.Z > z);
+         * public DummyQueryBuilder WithZGreaterThen(float z) => AddCondition(v=> v.Z > z);
          * 
          */
 
