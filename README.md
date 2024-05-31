@@ -57,6 +57,7 @@ Once the template is installed, you can use it to create a new project in Visual
 1. Open Visual Studio and select "Create a new project".
 2. Search for "Repository Pattern" in the list of project templates.
 3. Select the template and follow the prompts to configure your new project.
+4. In the Initialize class, follow the instructions 
 
 ### Example Code
 If Filtering is defined in DummyQueryBuilder as
@@ -76,7 +77,7 @@ public class MyService
 
    public Task<List<DummyDto> GetSomeData(CancellationToken cancellationToken)
    {
-      return dummyRepository.All(q => q.WithZGreaterThen(0.5f).Take(10), cancellationToken);
+      return _dummyRepository.All(q => q.WithZGreaterThen(0.5f).Take(10), cancellationToken);
    }
 }
 ```
