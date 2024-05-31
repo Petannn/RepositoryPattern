@@ -58,6 +58,29 @@ Once the template is installed, you can use it to create a new project in Visual
 2. Search for "Repository Pattern" in the list of project templates.
 3. Select the template and follow the prompts to configure your new project.
 
+### Example Code
+If Filtering is defined in DummyQueryBuilder as
+```csharp
+public DummyQueryBuilder WithZGreaterThen(float z) => AddCondition(v => v.Z > z);
+```
+Then we can use the repository in the service as
+```csharp
+public class MyService
+{
+   private readonly IDummyRepository _dummyRepository;
+
+   public MyService(IDummyRepository dummyRepository)
+   {
+      _dummyRepository = dummyRepository;
+   }
+
+   public Task<List<DummyDto> GetSomeData(CancellationToken cancellationToken)
+   {
+      return dummyRepository.All(q => q.WithZGreaterThen(0.5f).Take(10), cancellationToken);
+   }
+}
+```
+
 ## License
 
 This project is licensed under a free license, and anyone is free to use it.
